@@ -1038,7 +1038,7 @@ class PostController extends ApplicationController
             
             # Take folders as tags
             if (is_int(strpos($post['filename'], '/'))) {
-                $folders = str_replace('#', ':', $post['filename']);
+                $folders = str_replace('~', ':', $post['filename']);
                 $tags = array_filter(array_unique(array_merge(explode(' ', $post['tags']), explode('/', $folders))));
                 array_pop($tags);
                 $post['tags'] = trim($post['tags'].' '.implode(' ', $tags));
